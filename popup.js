@@ -1,4 +1,5 @@
 let playButton = document.getElementById('playButton');
+let clearButton = document.getElementById('clearButton');
 let textSpeedInput = document.getElementById('textspeed')
 let setTextSpeed = document.getElementById('setTextSpeed') 
 let fontSizeInput = document.getElementById('fontsize')
@@ -10,6 +11,10 @@ var paused = false;
 var timer
 var textspeed = 200
 pauseButton.onclick = () => paused = true
+clearButton.onclick = () => {
+  clearInterval(timer)
+  paused = false
+}
 setFontSize.onclick = () => outputBox.style.fontSize = parseInt(fontSizeInput.value) + "px"
 setTextSpeed.onclick = () => textspeed = parseInt(textSpeedInput.value)
 playButton.onclick = function() {
