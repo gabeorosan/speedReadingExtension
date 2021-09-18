@@ -1,4 +1,6 @@
 let playButton = document.getElementById('playButton');
+let textSpeedInput = document.getElementById('textspeed')
+let setTextSpeed = document.getElementById('setTextSpeed') 
 let fontSizeInput = document.getElementById('fontsize')
 let setFontSize = document.getElementById('setFontSize')
 let pauseButton = document.getElementById('pauseButton');
@@ -6,8 +8,10 @@ let outputBox = document.getElementById('output');
 let wordRadio = document.getElementById('word')
 var paused = false;
 var timer
+var textspeed = 200
 pauseButton.onclick = () => paused = true
 setFontSize.onclick = () => outputBox.style.fontSize = parseInt(fontSizeInput.value) + "px"
+setTextSpeed.onclick = () => textspeed = parseInt(textSpeedInput.value)
 playButton.onclick = function() {
   if (paused) {
     paused = false} 
@@ -28,7 +32,7 @@ playButton.onclick = function() {
             )
           }
         },
-        200
+        textspeed
       );
 
         } );
