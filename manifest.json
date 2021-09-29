@@ -2,15 +2,15 @@
     "name": "Speed Reader V2",
     "version": "1.0",
     "manifest_version": 3,
-    "permissions": ["tabs", "activeTab", "storage", "scripting"],
+    "permissions": ["tabs", "activeTab", "storage", "scripting", "webNavigation"],
     "background": {
         "service_worker": "background.js"
       },
     "commands": {
       "run-foo": {
         "suggested_key": {
-          "default": "Ctrl+Y",
-          "mac": "Command+Y"
+          "default": "Ctrl+Shift+X",
+          "mac": "Command+Shift+X"
         },
         "description": "Run \"foo\" on the current page."
       },
