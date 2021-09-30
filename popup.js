@@ -16,7 +16,7 @@ var paused = false;
 var timer
 var speed = 300
 var fontSize = 30
-let splitBy
+let splitBy = " "
 let text
 chrome.storage.sync.get('speed', (data => {
   if (typeof data.speed !== 'undefined') speed = data.speed
@@ -118,5 +118,3 @@ optionsButton.addEventListener("click", function() {
     optionsContainer.style.display = "block";
     }
 });
-
-outputBox.onload = playText()
