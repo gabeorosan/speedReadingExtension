@@ -1,12 +1,6 @@
 let playButton = document.getElementById('playButton');
-let clearButton = document.getElementById('clearButton');
-let textSpeedInput = document.getElementById('textspeed')
-let fontSizeInput = document.getElementById('fontsize')
-let setTextSpeed = document.getElementById('setTextSpeed') 
-let setFontSize = document.getElementById('setFontSize')
 let pauseButton = document.getElementById('pauseButton');
 let outputBox = document.getElementById('output');
-let wordRadio = document.getElementById('word')
 var paused = false;
 var timer
 var textspeed = 200
@@ -25,13 +19,6 @@ chrome.storage.sync.get('fontSize', (data) => {
 })
 
 pauseButton.onclick = () => paused = true
-clearButton.onclick = () => {
-    console.log(fontSize)
-  clearInterval(timer)
-  paused = false
-}
-setFontSize.onclick = () => outputBox.style.fontSize = parseInt(fontSizeInput.value) + "px"
-setTextSpeed.onclick = () => textspeed = parseInt(textSpeedInput.value)
 function playText() {
     chrome.storage.sync.get( "selectedText", ({ selectedText }) => {
         console.log(selectedText) 

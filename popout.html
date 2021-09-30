@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
       .flex{
         display: flex;
@@ -28,29 +30,10 @@
   </head>
   <body>
     <div class="flex">
-      <input type="text" name="textspeed" id="textspeed">
-      <button id="setTextSpeed">Set Speed (ms) </button>
+      <button id="pauseButton"> <i style="font-size:18px" class="fa">&#xf04c;</i> </button>
+      <button id="playButton"> <i style="font-size:24px" class="fa">&#xf04b;</i> </button>
     </div>
-    <div class="flex">
-      <input type="text" name="fontsize" id="fontsize">
-      <button id="setFontSize">Set Font</button>
-    </div>
-    <div class="flex">
-
-      <input type="radio" id="word" name="choice" value="word"
-         checked>
-      <label for="word">Word</label>
-      <input type="radio" id="letter" name="choice" value="letter"
-         >
-      <label for="letter">Letter</label>
-    </div>
-    <div class="flex">
-
-      <button id="playButton"> play text </button>
-      <button id="pauseButton"> pause text </button>
-      <button id="clearButton">Clear queue</button>
-    </div>
-    <pre id="output">wats up</pre>
+    <pre id="output"></pre>
     <script src="popout.js"></script>
   </body>
 </html>

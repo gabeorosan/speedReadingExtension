@@ -3,7 +3,7 @@ function getSelectedText() {
   let selectedText = window.getSelection().toString()
   chrome.storage.sync.set({selectedText})
 }
-chrome.commands.onCommand.addListener(async function(command, tab) {
+chrome.commands.onCommand.addListener(function(command, tab) {
   console.log("Command:", command);
   chrome.scripting.executeScript({
     target: {tabId: tab.id},
@@ -37,7 +37,7 @@ chrome.commands.onCommand.addListener(async function(command, tab) {
             tabId: tab.id,
             type: 'popup',
             focused: true,
-            height: 500,
+            height: 250,
             width: 500,
             left: 0,
             // incognito, top, left, ...

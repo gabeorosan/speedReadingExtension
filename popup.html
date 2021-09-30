@@ -1,7 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
+      #options-button {
+        color: #444;
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        text-align: center;
+        outline: none;
+        font-size: 15px;
+      }
+      .active, #options-button:hover {
+        background-color: #ccc;
+      }
+      #options-container {
+        padding: 0 18px;
+        display: none;
+        overflow: hidden;
+        background-color: #ccc;
+      }
       .flex{
         display: flex;
         text-align: center;
@@ -15,46 +35,44 @@
         outline: none;
       }
       pre{
-        min-width: 250px;
+        min-width: 300px;
         height: 50px;
-        font-size: 50px;
         text-align: center;
       }
       input[type=text]{
         text-align: center;
         width: 50px;
         height: 50px;
+        margin: 3px;
       }
     </style>
   </head>
   <body>
-    <div class="flex">
-      <button id="popout-button">Popout</button>
+    <button id="options-button"> Options </button>
+    <div id="options-container">
+      <div class="flex">
+        <input type="text" name="textspeed" id="textspeed">
+        <button id="setTextSpeed">Set Speed (ms) </button>
+        <input type="text" name="fontsize" id="fontsize">
+        <button id="setFontSize">Set Font Size</button>
+      </div>
+      <div class="flex">
+        <input type="radio" id="word" name="choice" value="word">
+        <label for="word">Word</label>
+        <input type="radio" id="letter" name="choice" value="letter"
+           >
+        <label for="letter">Letter</label>
+        <button id="save-radio-button">Set splitBy</button>
+      </div>
+      <div class="flex">
+        <button id="save-all-button">Save All</button>
+      </div>
     </div>
     <div class="flex">
-      <input type="text" name="textspeed" id="textspeed">
-      <button id="setTextSpeed">Set Speed (ms) </button>
+      <button id="pauseButton"> <i style="font-size:18px" class="fa">&#xf04c;</i> </button>
+      <button id="playButton"> <i style="font-size:18px" class="fa">&#xf04b;</i> </button>
     </div>
-    <div class="flex">
-      <input type="text" name="fontsize" id="fontsize">
-      <button id="setFontSize">Set Font</button>
-    </div>
-    <div class="flex">
-
-      <input type="radio" id="word" name="choice" value="word"
-         checked>
-      <label for="word">Word</label>
-      <input type="radio" id="letter" name="choice" value="letter"
-         >
-      <label for="letter">Letter</label>
-    </div>
-    <div class="flex">
-
-      <button id="playButton"> play text </button>
-      <button id="pauseButton"> pause text </button>
-      <button id="clearButton">Clear queue</button>
-    </div>
-    <pre id="output">wats up</pre>
+    <pre id="output"></pre>
     <script src="popup.js"></script>
   </body>
 </html>
