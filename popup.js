@@ -79,7 +79,7 @@ function playText() {
     })
     setTimeout(function(){
       chrome.storage.sync.get('selectedText', (data) => {
-        console.log(data.selectedText) 
+        // console.log(data.selectedText) 
         if (splitBy == 'undefined'){
           text = data.selectedText.split(" ")
         } else {

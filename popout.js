@@ -21,29 +21,36 @@ chrome.storage.sync.get('fontSize', (data) => {
 pauseButton.onclick = () => paused = true
 function playText() {
     chrome.storage.sync.get( "selectedText", ({ selectedText }) => {
-        console.log(selectedText) 
-          chrome.storage.sync.get("splitBy", ({splitBy}) => {
-            if (splitBy == 'undefined'){
-              text = selectedText.split(" ")
-            } else {
-              text = selectedText.split(splitBy)
-            }
-            console.log(text)
-            console.log(splitBy)
-            let wordIndex = 0
-            timer = setInterval(
-              () => 
-              {
-                if (!paused){
-                  wordIndex + 1 > text.length ? clearInterval(timer) : (
-                    outputBox.textContent = text[wordIndex],
-                    wordIndex++
-                    )
-                  }
-                },
-                textspeed
-                );
-              })
+
+        chrome.storage.sync.get("splitBy", ({splitBy}) => {
+          if (splitBy == 'undefined'){
+            //replace new line characters
+            
+            while (selectedText.match(/[\r\n]+/)) selectedText=selectedText.replace(/[\r\n]+/, ' ');
+            text = selectedText.split(" ")
+          } else {
+            //replace new line characters
+            while (selectedText.match(/[\r\n]+/)) selectedText=selectedText.replace(/[\r\n]+/, ' ');
+            text = selectedText.split(splitBy)
+          }
+          // for (let i = 0; i<selectedText.length; i++){
+          //   console.log(selectedText[i].charCodeAt(0) + selectedText[i])
+          // }
+          // console.log(selectedText)
+          let wordIndex = 0
+          timer = setInterval(
+            () => 
+            {
+              if (!paused){
+                wordIndex + 1 > text.length ? clearInterval(timer) : (
+                  outputBox.textContent = text[wordIndex],
+                  wordIndex++
+                  )
+                }
+              },
+              textspeed
+              );
+            })
           })}
         
 playButton.onclick = function() {
